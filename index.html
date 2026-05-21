@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko">
-<!-- 링크 공유 시 노출되는 정보 -->
-<meta property="og:title" content="2026년 6월 삼일교회 3청 1진4팀 MT" />
-<meta property="og:description" content="6월 12-13일, 서울근교에서 함께하는 1박 2일 MT에 초대합니다." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://innes07.github.io/samil_invitation061213/" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#6a8d73" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="삼일교회 MT" />
+  
+  <!-- 링크 공유 시 노출되는 정보 -->
+  <meta property="og:title" content="2026년 6월 삼일교회 3청 1진4팀 MT" />
+  <meta property="og:description" content="6월 12-13일, 서울근교에서 함께하는 1박 2일 MT에 초대합니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://innes07.github.io/samil_invitation061213/" />
 
-<!-- 카카오톡·문자·SNS 링크 미리보기 이미지 -->
-<meta property="og:image" content="https://innes07.github.io/samil_invitation061213/SamilInvitation.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:type" content="image/png" />
+  <!-- 카카오톡·문자·SNS 링크 미리보기 이미지 -->
+  <meta property="og:image" content="https://innes07.github.io/samil_invitation061213/SamilInvitation.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
 
-<!-- X/Twitter 등 일부 플랫폼용 미리보기 설정 -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="2026년 6월 삼일교회 3청 1진4팀 MT" />
-<meta name="twitter:description" content="6월 12-13일, 서울근교에서 함께하는 1박 2일 MT에 초대합니다." />
-<meta name="twitter:image" content="https://innes07.github.io/samil_invitation061213/SamilInvitation.png" />
+  <!-- X/Twitter 등 일부 플랫폼용 미리보기 설정 -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="2026년 6월 삼일교회 3청 1진4팀 MT" />
+  <meta name="twitter:description" content="6월 12-13일, 서울근교에서 함께하는 1박 2일 MT에 초대합니다." />
+  <meta name="twitter:image" content="https://innes07.github.io/samil_invitation061213/SamilInvitation.png" />
+  
+  <title>2026년 6월 삼일교회 3청 1진4팀 MT</title>
+
   <style>
     :root {
       --bg: #f8f4ec;
@@ -34,6 +45,12 @@
       box-sizing: border-box;
     }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
@@ -46,6 +63,8 @@
       display: flex;
       justify-content: center;
       padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .page {
@@ -61,6 +80,7 @@
       background: linear-gradient(155deg, rgba(255,255,255,0.94), rgba(255,249,237,0.86));
       box-shadow: var(--shadow);
       border: 1px solid rgba(255, 255, 255, 0.7);
+      will-change: transform;
     }
 
     .hero::before {
@@ -72,6 +92,7 @@
       background: rgba(106, 141, 115, 0.12);
       top: -70px;
       right: -50px;
+      pointer-events: none;
     }
 
     .hero::after {
@@ -83,6 +104,7 @@
       background: rgba(246, 184, 123, 0.14);
       bottom: -55px;
       left: -40px;
+      pointer-events: none;
     }
 
     .content {
@@ -101,6 +123,7 @@
       font-size: 13px;
       font-weight: 700;
       letter-spacing: -0.02em;
+      user-select: none;
     }
 
     h1 {
@@ -217,6 +240,7 @@
     .value {
       font-weight: 650;
       letter-spacing: -0.03em;
+      word-break: break-word;
     }
 
     .programs {
@@ -233,6 +257,7 @@
       font-size: 14px;
       font-weight: 750;
       letter-spacing: -0.03em;
+      user-select: none;
     }
 
     .message {
@@ -247,8 +272,9 @@
       position: sticky;
       bottom: 0;
       margin-top: 18px;
-      padding: 14px 0 4px;
+      padding: 14px 0 max(4px, env(safe-area-inset-bottom));
       background: linear-gradient(to top, var(--bg) 64%, rgba(248,244,236,0));
+      z-index: 100;
     }
 
     .button {
@@ -265,11 +291,20 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+      min-height: 48px;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      user-select: none;
     }
 
     .button:active {
       transform: translateY(1px) scale(0.99);
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(106, 141, 115, 0.5);
+      outline-offset: 2px;
     }
 
     .primary {
@@ -278,11 +313,19 @@
       box-shadow: 0 12px 24px rgba(69, 102, 77, 0.24);
     }
 
+    .primary:active {
+      background: var(--green-dark);
+    }
+
     .secondary {
       margin-top: 10px;
       background: rgba(255, 255, 255, 0.82);
       color: var(--green-dark);
       border: 1px solid var(--line);
+    }
+
+    .secondary:active {
+      background: rgba(255, 255, 255, 0.95);
     }
 
     .footer {
@@ -296,7 +339,7 @@
     .toast {
       position: fixed;
       left: 50%;
-      bottom: 24px;
+      bottom: max(24px, calc(env(safe-area-inset-bottom) + 12px));
       transform: translateX(-50%) translateY(20px);
       padding: 11px 14px;
       border-radius: 999px;
@@ -306,12 +349,66 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.2s ease, transform 0.2s ease;
-      z-index: 10;
+      z-index: 1000;
+      user-select: none;
     }
 
     .toast.show {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
+    }
+
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: prefer-reduced) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .button {
+        transition: background-color 0.18s ease;
+      }
+    }
+
+    /* High resolution displays */
+    @media (-webkit-min-device-pixel-ratio: 2) {
+      body {
+        background-attachment: fixed;
+      }
+    }
+
+    /* Small screens optimization */
+    @media (max-width: 374px) {
+      body {
+        padding: 16px 12px;
+      }
+
+      .hero {
+        padding: 24px 16px 18px;
+      }
+
+      h1 {
+        font-size: clamp(26px, 7vw, 36px);
+      }
+
+      .section {
+        padding: 16px;
+      }
+    }
+
+    /* Large screens */
+    @media (min-width: 768px) {
+      body {
+        padding: 32px 16px;
+      }
+
+      .page {
+        max-width: 500px;
+      }
     }
   </style>
 </head>
@@ -376,7 +473,7 @@
       <a class="button primary" href="https://forms.gle/rDYcYvRY48wPPDg37" target="_blank" rel="noopener noreferrer">
         RSVP 작성하기 →
       </a>
-      <button class="button secondary" type="button" onclick="shareInvitation()">
+      <button class="button secondary" type="button" onclick="shareInvitation()" aria-label="초대장 링크를 공유합니다">
         초대장 링크 공유하기
       </button>
     </div>
@@ -386,7 +483,7 @@
     </footer>
   </main>
 
-  <div id="toast" class="toast">링크가 복사되었습니다.</div>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true">링크가 복사되었습니다.</div>
 
   <script>
     async function shareInvitation() {
@@ -417,6 +514,17 @@
       const toast = document.getElementById("toast");
       toast.classList.add("show");
       setTimeout(() => toast.classList.remove("show"), 1800);
+    }
+
+    // Preload critical image for better LCP (Largest Contentful Paint)
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = 'https://innes07.github.io/samil_invitation061213/SamilInvitation.png';
+        document.head.appendChild(link);
+      });
     }
   </script>
 </body>
